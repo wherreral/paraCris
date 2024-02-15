@@ -113,6 +113,8 @@
 </script>
 
 <script>
+const SHOPPING_CART_STORAGE_KEY = "storage__shopping__cart";
+
 function formatPriceValue(price) {
 	return new Intl.NumberFormat('es-CL', {
 		style: 'currency',
@@ -121,7 +123,7 @@ function formatPriceValue(price) {
 }
 
 function getShoppingCartListFromLocalStorage() {
-	const shoppingCartList = window.localStorage.getItem("storage__shopping__cart");
+	const shoppingCartList = window.localStorage.getItem(SHOPPING_CART_STORAGE_KEY);
 	if (shoppingCartList) return JSON.parse(shoppingCartList);
 	return [];
 }
@@ -142,14 +144,13 @@ function addToShoppingCart(elem) {
 		price: elem.getAttribute("data-price"),
 	};
 	cart.push(product);
-	window.localStorage.setItem("storage__shopping__cart", JSON.stringify(cart));
+	window.localStorage.setItem(SHOPPING_CART_STORAGE_KEY, JSON.stringify(cart));
 }
 
 function removeFromShoppingCart(id) {
 	const cart = getShoppingCartListFromLocalStorage();
 	const updatedCart = cart.filter((cart) => cart.id !== id);
-	console.log('updated cart', updatedCart, 'card', cart, 'id', id);
-	window.localStorage.setItem("storage__shopping__cart", JSON.stringify(updatedCart));
+	window.localStorage.setItem(SHOPPING_CART_STORAGE_KEY, JSON.stringify(updatedCart));
 }
 
 function toggleShowShoppingCart() {
@@ -197,15 +198,19 @@ function createShoppingCartItemCard(item) {
 	return card;
 }
 
-function renderShoppingCartItems() {
+function clearShoppingCartItems() {
 	const htmlCartItems = document.querySelectorAll('.shopping-cart__item');
 	for (let idx = 0; idx < Array.from(htmlCartItems).length; idx++) {
 		htmlCartItems[idx].remove();
 	}
+}
+
+function renderShoppingCartItems() {
+	clearShoppingCartItems();
 	const shoppingCartItems = getShoppingCartListFromLocalStorage();
 	const shoppingCartContent = document.querySelector(".shopping-cart__content");
 
-	for (idx = 0; idx < shoppingCartItems.length; idx++) {
+	for (let idx = 0; idx < shoppingCartItems.length; idx++) {
 		const productCard = createShoppingCartItemCard(shoppingCartItems[idx]);
 		shoppingCartContent.appendChild(productCard);
 	}
