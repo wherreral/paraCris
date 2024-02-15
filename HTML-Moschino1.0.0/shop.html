@@ -132,7 +132,7 @@ function getTotalShoppingCart() {
 	return total;
 }
 
-function addToCart(elem) {
+function addToShoppingCart(elem) {
 	const cart = getShoppingCartListFromLocalStorage();
 	const id = cart.length + 1;
 	const product = {
@@ -145,7 +145,7 @@ function addToCart(elem) {
 	window.localStorage.setItem("storage__shopping__cart", JSON.stringify(cart));
 }
 
-function removeFromCart(id) {
+function removeFromShoppingCart(id) {
 	const cart = getShoppingCartListFromLocalStorage();
 	const updatedCart = cart.filter((cart) => cart.id !== id);
 	console.log('updated cart', updatedCart, 'card', cart, 'id', id);
@@ -185,7 +185,7 @@ function createShoppingCartItemCard(item) {
 	deleteButton.type = "button";
 	deleteButton.textContent = "Eliminar";
 	deleteButton.addEventListener("click", (event) => {
-		removeFromCart(item.id);
+		removeFromShoppingCart(item.id);
 		renderShoppingCartItems();
 		renderTotalShoppingCart();
 	});
@@ -236,7 +236,7 @@ window.addEventListener("load", () => {
 	for (let i = 0; i < objects.length; i++) {
 	    objects[i].addEventListener("click", (e) => {
 			toggleShowShoppingCart();
-			addToCart(e.target);
+			addToShoppingCart(e.target);
 			renderShoppingCartItems();
 			renderTotalShoppingCart();
 			/*
