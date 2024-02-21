@@ -85,6 +85,7 @@ function createShoppingCartItemCard(item) {
 		renderShoppingCartItems();
 		renderTotalShoppingCart();
 		renderTotalCartItemsOnMenuButton();
+		renderCompleteOrderButton();
 	});
 
 	const group = document.createElement("div");
@@ -109,6 +110,18 @@ function renderShoppingCartItems() {
 	clearShoppingCartItems();
 	const shoppingCartItems = getShoppingCartListFromLocalStorage();
 	const shoppingCartContent = document.querySelector(".shopping-cart__content");
+
+	if (shoppingCartItems.length === 0) {
+		const title = document.createElement("h4");
+		title.classList.add("shopping-cart__empty-title");
+		title.textContent = "Aún no has agregado un producto al carrito, agrega uno para poder comprar. 🛒";
+		shoppingCartContent.appendChild(title);
+	}
+
+	if (shoppingCartItems.length > 0) {
+		const title = document.querySelector(".shopping-cart__empty-title");
+		if (title) title.remove();
+	}
 
 	for (let idx = 0; idx < shoppingCartItems.length; idx++) {
 		const productCard = createShoppingCartItemCard(shoppingCartItems[idx]);
@@ -137,6 +150,23 @@ function renderTotalCartItemsOnMenuButton() {
 	if (quantity > 0) button.appendChild(badge);
 }
 
+function renderCompleteOrderButton() {
+	const htmlCompleteOrderButton = document.querySelector(".shopping-cart__complete-order-btn");
+	if (htmlCompleteOrderButton) htmlCompleteOrderButton.remove();
+
+	const footer = document.querySelector(".shopping-cart__footer");
+	const quantity = getTotalShoppingCartQuantity();
+	const button = document.createElement("button");
+	button.classList.add("shopping-cart__complete-order-btn");
+	button.disabled = quantity > 0 ? false : true;
+	button.textContent = "Procesar Compra";
+	button.addEventListener("click", () => {
+		console.log("Procesando compra... 🛒");
+	});
+
+	footer.appendChild(button);
+}
+
 window.addEventListener("load", () => {
 	renderTotalCartItemsOnMenuButton();
 	const shoppingCartCloseBtn = document.querySelector(".shopping-cart__close-btn");
@@ -151,6 +181,7 @@ window.addEventListener("load", () => {
 	shoppingCartMenuButton.addEventListener("click", () => {
 		renderShoppingCartItems();
 		renderTotalShoppingCart();
+		renderCompleteOrderButton();
 		toggleShowShoppingCart();
 	});
 	// document.querySelectorAll("#myHref").addEventListener("click", e => {
@@ -161,6 +192,7 @@ window.addEventListener("load", () => {
 			renderShoppingCartItems();
 			renderTotalShoppingCart();
 			renderTotalCartItemsOnMenuButton();
+			renderCompleteOrderButton();
 			/*
 			var parent = e.target.parentElement;
 			// console.log(parent.firstChild.getAttribute("id"))
