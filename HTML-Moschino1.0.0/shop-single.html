@@ -11,8 +11,11 @@
 <link rel='stylesheet' href='/style.css' type='text/css' media='all'/>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700' type='text/css' media='all'/>
 <link rel='stylesheet' href='../css/easy-responsive-shortcodes.css' type='text/css' media='all'/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel='stylesheet' href='/css/shopping-cart.css' />
 </head>
 <body class="single single-product woocommerce woocommerce-page">
+<div id="related-products" data-related='${related_products}'></div>
 <div id="page">
 	<div class="container">
 		<header id="masthead" class="site-header">
@@ -39,6 +42,11 @@
 				</ul>
 				</li>
 				<li><a href="contact.html">Contact</a></li>
+				<li>
+					<button type="button" id="menu-shopping-cart-button">
+						<span>Carro</span>
+					</button>
+				</li>
 			</ul>
 		</div>
 		</nav>
@@ -75,11 +83,32 @@
 										Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
 									</p>
 								</div> -->
-								<form class="cart" method="post" enctype='multipart/form-data'>
+								<!-- Cristhian -->
+								<form
+									id="product-page-detail-form"
+									class="cart"
+									method="post"
+									enctype="multipart/form-data"
+									data-product='${product_obj}'
+								>
+									<input name="product" type="hidden" value="${product_obj}" />
 									<div class="quantity">
-										<input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4"/>
-									</div>									
-									<button type="submit" class="single_add_to_cart_button button alt">Agregar</button>
+										<input
+											type="number"
+											step="1"
+											min="1"
+											max=""
+											name="quantity"
+											value="1"
+											title="Qty"
+											class="input-text qty text"
+											size="4"
+										/>
+									</div>
+									<button
+										type="submit"
+										class="single_add_to_cart_button button alt"
+									>Agregar</button>
 								</form>
 								<!-- <div class="product_meta">
 									<span class="posted_in">Categories: 
@@ -173,6 +202,9 @@
 									</div>
 								</div> -->
 							</div>
+							<!-- Related Products -->
+							<div id="related-products-carousel"></div>
+							<!-- End Reladted Products -->
 							<!-- <div class="related products">
 								<h2>Related Products</h2>
 								<ul class="products">
@@ -201,7 +233,7 @@
 									<h3>Slim Jeans</h3>
 									<span class="price"><span class="amount">$20.00</span></span>
 									</a>
-									<a href="#" class="button">Add to cart</a>
+									<a href="#" class="button">Add to cart 🥔</a>
 									</li>
 									
 									
@@ -225,6 +257,20 @@
 		</div>
 		<!-- #content -->
 	</div>
+	<!-- Shopping Cart Sidebar. -->
+	<div id="shopping-cart-overlay" class="shopping-cart__overlay">
+		<div id="shopping-cart-sidebar" class="shopping-cart__sidebar">
+			<header class="shopping-cart__header">
+				<h4 id="shopping-cart-total" class="shopping-cart__title"></h4>
+				<button type="button" class="shopping-cart__close-btn">&times;</button>
+			</header>
+			<div class="shopping-cart__container">
+				<article class="shopping-cart__content"></article>
+			</div>
+			<footer class="shopping-cart__footer">
+			</footer>
+		</div>
+	</div>
 	<!-- .container -->
 	<footer id="colophon" class="site-footer">
 	<div class="container">
@@ -241,5 +287,8 @@
 <script src='../js/plugins.js'></script>
 <script src='../js/scripts.js'></script>
 <script src='../js/masonry.pkgd.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src='/js/shopping-cart.js'></script>
+<script src='/js/product-page-detail.js'></script>
 </body>
 </html>
