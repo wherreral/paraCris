@@ -23,53 +23,74 @@ function handleAddToCart(event, item = null) {
 function createRelatedProductsCart(products) {
 	const swiper = document.createElement("div");
 	swiper.classList.add("swiper", "related-products-swipper");
+	const swiperNextButton = document.createElement("div");
+	swiperNextButton.classList.add("swiper-button-next");
+	const swiperPreviousButton = document.createElement("div");
+	swiperPreviousButton.classList.add("swiper-button-prev");
 	const swipperWrapper = document.createElement("div");
 	swipperWrapper.classList.add("swiper-wrapper");
 	for (let idx = 0; idx < products.length; idx++) {
 		const swipperSlide = document.createElement("div");
 		swipperSlide.classList.add("swiper-slide");
-		const swipperCard = document.createElement("div");
-		swipperCard.classList.add("related-products-swipper__Card");
-		const swipperImage = document.createElement("img");
-		swipperImage.classList.add("related-products-swipper__image");
-		swipperImage.src = products[idx].image;
-		swipperImage.alt = "";
-		swipperImage.width = 248;
-		swipperImage.height = 480;
-		const swipperPrice = document.createElement("span");
-		swipperPrice.classList.add("related-products-swipper__price");
-		swipperPrice.textContent = formatPriceValue(Number(products[idx].price));
-		const swipperButton = document.createElement("button");
-		swipperButton.classList.add("related-products-swipper__add-to-cart");
-		swipperButton.type = "button";
-		swipperButton.textContent = "Agregar al Carro";
-		swipperButton.addEventListener("click", (event) => handleAddToCart(event, products[idx]));
+		const card = document.createElement("div");
+		card.classList.add("related-products-swipper__card");
+		const image = document.createElement("img");
+		image.classList.add("related-products-swipper__image");
+		image.src = products[idx].image;
+		image.alt = "";
+		image.width = 248;
+		image.height = 480;
+		const title = document.createElement("h4");
+		title.classList.add("related-products-swipper__title");
+		title.textContent = products[idx].name;
+		const price = document.createElement("span");
+		price.classList.add("related-products-swipper__price");
+		price.textContent = formatPriceValue(Number(products[idx].price));
+		const button = document.createElement("button");
+		button.classList.add("related-products-swipper__add-to-cart");
+		button.type = "button";
+		button.textContent = "Agregar al Carro";
+		button.addEventListener("click", (event) => handleAddToCart(event, products[idx]));
 
-		swipperCard.appendChild(swipperImage);
-		swipperCard.appendChild(swipperPrice);
-		swipperCard.appendChild(swipperButton);
-		swipperSlide.appendChild(swipperCard);
+		card.appendChild(image);
+		card.appendChild(title);
+		card.appendChild(price);
+		card.appendChild(button);
+		swipperSlide.appendChild(card);
 		swipperWrapper.appendChild(swipperSlide);
 	}
 	swiper.appendChild(swipperWrapper);
+	swiper.appendChild(swiperNextButton);
+	swiper.appendChild(swiperPreviousButton);
+
 	return swiper;
 }
 
 function initSwipper() {
 	// const swipper = document.querySelector(".related-products-swipper");
 	new Swiper(".related-products-swipper", {
-		slidesPerView: 3,
+		slidesPerView: 4,
 		spaceBetween: 10,
+		navigation: {
+			// nextEl: ".related-products-swiper__button-next",
+			// prevEl: ".related-products-swiper__button-prev",
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev",
+		},
 		pagination: false,
 	});
 }
 
 function renderRelatedProducts() {
+	const relatedProductsMainTitle = document.createElement("h2");
+	relatedProductsMainTitle.classList.add("related-products-swipper__main-title");
+	relatedProductsMainTitle.textContent = "Productos Recomendados";
+
 	const relatedProductsData = JSON.parse(relatedProducts.dataset.related);
-	console.log("render_related_products", relatedProductsData);
 	const relatedProductsCarousel = document.querySelector("#related-products-carousel");
 	const carousel = createRelatedProductsCart(relatedProductsData);
 
+	relatedProductsCarousel.appendChild(relatedProductsMainTitle);
 	relatedProductsCarousel.appendChild(carousel);
 }
 
