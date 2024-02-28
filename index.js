@@ -116,11 +116,11 @@ app.get('/product/:id', async function(req, res) {
 	//let html_text  = fs.readFileSync(filePath, {encoding: 'utf-8'});
 	let html_text = app.locals.producthtml
 	const relatedProducts = [
-		{ id: "7", image: '/img/9788418043192.jpg', price: 53990 },
-		{ id: "3", image: '/img/9788416796809.jpg', price: 55990 },
-		{ id: "16", image: '/img/9788467909715.jpg', price: 12690 },
-		{ id: "23", image: '/img/9788467941913.jpg', price: 13990 },
-		{ id: "30", image: '/img/9788467945096.jpg', price: 13990 },
+		{ id: "7", name: "Predicador vol 1", image: '/img/9788418043192.jpg', price: 53990 },
+		{ id: "3", name: "V de Vendetta Deluxe", image: '/img/9788416796809.jpg', price: 55990 },
+		{ id: "16", name: "Ataque a los Titanes 2", image: '/img/9788467909715.jpg', price: 12690 },
+		{ id: "23", name: "Jujutsu Kaisen 3", image: '/img/9788467941913.jpg', price: 13990 },
+		{ id: "30", name: "Chainsaw Man 5", image: '/img/9788467945096.jpg', price: 13990 },
 	];
 	const product = {
 		id: searchObject.ID,
