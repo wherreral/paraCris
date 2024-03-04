@@ -67,9 +67,17 @@
 							</div>
 							<div class="summary entry-summary">
 								<h1 itemprop="name" class="product_title entry-title">${product_name}</h1>
-								<div class="woocommerce-product-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-									<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-									<a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<span itemprop="reviewCount" class="count">2</span> customer reviews)</a>
+								<div class="product-detail-page-reviews" id="product-detail-page-reviews" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+									<div id="reviews-rating-stars"></div>
+									<div id="reviews-rating-length"></div>
+									<!-- <i class="fa fa-star"></i> -->
+									<!-- <i class="fa fa-star"></i> -->
+									<!-- <i class="fa fa-star"></i> -->
+									<!-- <i class="fa fa-star"></i> -->
+									<!-- <i class="fa fa-star"></i> -->
+									<!-- <a href="#reviews" class="woocommerce-review-link" rel="nofollow"> -->
+									<!-- 	(<span itemprop="reviewCount" class="count">2</span> customer reviews) -->
+									<!-- </a> -->
 								</div>
 								<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 									<p class="price">
@@ -85,6 +93,12 @@
 									</p>
 								</div> -->
 								<!-- Cristhian -->
+								<div class="panel entry-content wc-tab" id="tab-description">
+									<!-- <h2>Product Description</h2> -->
+									<p>
+										Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+									</p>
+								</div>
 								<form
 									id="product-page-detail-form"
 									class="cart"
@@ -120,12 +134,6 @@
 							</div>
 							<!-- .summary -->
 							<div class="woocommerce-tabs wc-tabs-wrapper">
-									<div class="panel entry-content wc-tab" id="tab-description">
-									<h2>Product Description</h2>
-									<p>
-										Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
-									</p>
-								</div>
 								<!-- <div class="panel entry-content wc-tab" id="tab-reviews">
 									<div id="reviews">
 										<div id="comments">
