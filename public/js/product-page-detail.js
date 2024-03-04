@@ -12,7 +12,7 @@ function getAvgRating(reviews) {
 }
 
 function renderReviewsComponent() {
-	const reviews = [5, 4, 3, 5, 2];
+	const reviews = [5, 5, 5, 5, 5];
 	const reviewLink = document.createElement("button");
 
 	reviewsRatingStars.innerHTML = "";
@@ -27,7 +27,7 @@ function renderReviewsComponent() {
 	}
 
 	reviewLink.type = "button";
-	reviewLink.textContent = `(${getAvgRating(reviews)}/5 customer reviews)`;
+	reviewLink.textContent = `(${getAvgRating(reviews)}/5.0)`;
 	reviewLink.addEventListener("click", () => {
 		console.log("open review modal");
 	});
