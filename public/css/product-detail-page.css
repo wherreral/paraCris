@@ -38,7 +38,7 @@
 }
 
 .related-products-swipper__price {
-  color: #0000ff;
+  color: #77a464;
   font-size: 1.625rem;
 }
 
@@ -53,4 +53,22 @@
 
 .related-products-swipper__add-to-cart:hover {
   opacity: 0.9;
+}
+
+.product-detail-page-reviews {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 1rem;
+}
+
+#reviews-rating-stars > .fa.fa-star.filled-star {
+  background-color: transparent;
+  color: #FFD700;
+}
+
+#reviews-rating-length button {
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 10px 0;
 }

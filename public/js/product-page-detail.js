@@ -1,6 +1,38 @@
+const reviewsWrapper = document.querySelector("#product-detail-page-reviews");
+const reviewsRatingStars = document.querySelector("#reviews-rating-stars");
+const reviewsRatingLength = document.querySelector("#reviews-rating-length");
 const productPageDetailForm = document.querySelector("#product-page-detail-form");
 const relatedProducts = document.querySelector("#related-products");
 const relatedProductsCarousel = document.querySelector("#related-products-carousel");
+
+function getAvgRating(reviews) {
+	const total = reviews.reduce((acc, rating) => acc + rating, 0);
+	const average = total / reviews.length;
+	return average.toFixed(1);
+}
+
+function renderReviewsComponent() {
+	const reviews = [5, 5, 5, 5, 5];
+	const reviewLink = document.createElement("button");
+
+	reviewsRatingStars.innerHTML = "";
+
+	for (let idx = 0; idx < 5; idx++) {
+		const star = document.createElement("i");
+		star.classList.add("fa", "fa-star");
+		if (idx < Math.round(getAvgRating(reviews))) {
+			star.classList.add("filled-star");
+		}
+		reviewsRatingStars.appendChild(star);
+	}
+
+	reviewLink.type = "button";
+	reviewLink.textContent = `(${getAvgRating(reviews)}/5.0)`;
+	reviewLink.addEventListener("click", () => {
+		console.log("open review modal");
+	});
+	reviewsRatingLength.appendChild(reviewLink);
+}
 
 function handleAddToCart(event, item = null) {
 	event.preventDefault();
@@ -30,6 +62,8 @@ function createRelatedProductsCart(products) {
 	const swipperWrapper = document.createElement("div");
 	swipperWrapper.classList.add("swiper-wrapper");
 	for (let idx = 0; idx < products.length; idx++) {
+		const link = document.createElement("a");
+		link.href = `${window.location.origin}/product/${products[idx].id}`;
 		const swipperSlide = document.createElement("div");
 		swipperSlide.classList.add("swiper-slide");
 		const card = document.createElement("div");
@@ -56,7 +90,8 @@ function createRelatedProductsCart(products) {
 		card.appendChild(title);
 		card.appendChild(price);
 		card.appendChild(button);
-		swipperSlide.appendChild(card);
+		link.appendChild(card);
+		swipperSlide.appendChild(link);
 		swipperWrapper.appendChild(swipperSlide);
 	}
 	swiper.appendChild(swipperWrapper);
@@ -97,4 +132,5 @@ function renderRelatedProducts() {
 productPageDetailForm.addEventListener("submit", handleAddToCart);
 
 renderRelatedProducts();
+renderReviewsComponent();
 initSwipper();
