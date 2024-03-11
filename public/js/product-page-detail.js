@@ -104,7 +104,7 @@ function createRelatedProductsCart(products) {
 function initSwipper() {
 	// const swipper = document.querySelector(".related-products-swipper");
 	new Swiper(".related-products-swipper", {
-		slidesPerView: 4,
+		slidesPerView: 2,
 		spaceBetween: 10,
 		navigation: {
 			// nextEl: ".related-products-swiper__button-next",
@@ -113,6 +113,20 @@ function initSwipper() {
 			prevEl: ".swiper-button-prev",
 		},
 		pagination: false,
+		breakpoints: {
+			640: {
+				slidesPerView: 2,
+				spaceBetween: 10,
+			},
+			768: {
+				slidesPerView: 4,
+				spaceBetween: 20,
+			},
+			1024: {
+				slidesPerView: 4,
+				spaceBetween: 20,
+			},
+		},
 	});
 }
 
