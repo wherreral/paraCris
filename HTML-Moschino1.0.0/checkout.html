@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>🛒 Checkout Page</title>
+	<link rel="stylesheet" href="css/woocommerce-layout.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/woocommerce-smallscreen.css" type="text/css" media="only screen and (max-width: 768px)" />
+	<link rel="stylesheet" href="css/woocommerce.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="style.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/easy-responsive-shortcodes.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="/css/shopping-cart.css" />
+	<link rel="stylesheet" href="/css/checkout-page.css" />
+</head>
+
+<body class="home page page-template page-template-template-portfolio page-template-template-portfolio-php">
+	<div id="page">
+		<div class="container">
+			<header id="masthead" class="site-header">
+				<div class="site-branding">
+					<h1 class="site-title">
+						<a href="index.html" rel="home">Moschino</a>
+					</h1>
+					<h2 class="site-description">Minimalist Portfolio HTML Template</h2>
+				</div>
+				<nav id="site-navigation" class="main-navigation">
+					<button class="menu-toggle">Menu</button>
+					<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+					<div class="menu-menu-1-container">
+						<ul id="menu-menu-1" class="menu">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="shop.html">Shop</a></li>
+							<li><a href="blog.html">Blog</a></li>
+							<li><a href="elements.html">Elements</a></li>
+							<li>
+								<a href="#">Pages</a>
+								<ul class="sub-menu">
+									<li><a href="portfolio-item.html">Portfolio Item</a></li>
+									<li><a href="blog-single.html">Blog Article</a></li>
+									<li><a href="shop-single.html">Shop Item</a></li>
+									<li>
+										<a href="portfolio-category.html">Portfolio Category</a>
+									</li>
+								</ul>
+							</li>
+							<li><a href="contact.html">Contact</a></li>
+							<li>
+								<button type="button" id="menu-shopping-cart-button">
+									<span>Carro</span>
+								</button>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</header>
+			<!-- #masthead -->
+			<div class="container">
+				<article class="checkout-page__wrapper">
+					<section class="checkout-page__address-info">
+						<form class="checkout-page__address-form" id="checkout-address-form">
+							<h2 class="checkout-page__address-title">Información de Envío</h2>
+							<div class="checkout-page__form-group">
+								<label class="checkout-page__form-label">Dirección</label>
+								<input class="checkout-page__form-text" type="text" name="address" placeholder="Dirección" />
+							</div>
+							<div class="checkout-page__form-group">
+								<label class="checkout-page__form-label">Ciudad</label>
+								<input class="checkout-page__form-text" type="text" name="city" placeholder="Ciudad" />
+							</div>
+							<div class="checkout-page__form-group">
+								<label>
+									<input type="radio" id="electronic-payment" name="payment" value="electronic-payment" checked />
+									Transferencia Electrónica
+								</label>
+								<label>
+									<input type="radio" id="link-payment" name="payment" value="link-payment" />
+									Link de Pago
+								</label>
+							</div>
+							<button class="checkout-page__form-submit" type="submit">Confirmar</button>
+						</form>
+					</section>
+					<section class="checkout-page__summary">
+						<div class="checkout-page__summary-items" id="checkout-summary-order">
+							<h2 class="checkout-page__summary-title">Resumen de Compra</h2>
+						</div>
+					</section>
+				</article>
+			</div>
+			<!-- #content -->
+			<div id="shopping-cart-overlay" class="shopping-cart__overlay">
+				<div id="shopping-cart-sidebar" class="shopping-cart__sidebar">
+					<header class="shopping-cart__header">
+						<h4 id="shopping-cart-total" class="shopping-cart__title"></h4>
+						<button type="button" class="shopping-cart__close-btn">&times;</button>
+					</header>
+					<div class="shopping-cart__container">
+						<article class="shopping-cart__content"></article>
+					</div>
+					<footer class="shopping-cart__footer">
+					</footer>
+				</div>
+			</div>
+		</div>
+		<!-- .container -->
+		<footer id="colophon" class="site-footer">
+			<div class="container">
+				<div class="site-info">
+					<h1>Moschino</h1>
+					<a target="blank" href="https://www.wowthemes.net/">&copy; Moschino - Free HTML Template by WowThemes.net</a>
+				</div>
+			</div>
+		</footer>
+		<a href="#top" class="smoothup" title="Back to top"><span class="genericon genericon-collapse"></span></a>
+	</div>
+	<!-- #page -->
+	<script src="js/jquery.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/scripts.js"></script>
+	<script src="js/masonry.pkgd.min.js"></script>
+	<script src="js/validate.js"></script>
+	<script src="js/shopping-cart.js"></script>
+	<script src="js/checkout-page.js"></script>
+</body>
+
+</html>
