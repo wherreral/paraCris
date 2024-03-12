@@ -29,6 +29,7 @@ function addToShoppingCart(item) {
 	const cart = getShoppingCartListFromLocalStorage();
 	const product = {
 		id: item.id,
+		name: item.name,
 		image: item.image,
 		price: item.price,
 		quantity: item.quantity,
@@ -190,6 +191,7 @@ window.addEventListener("load", () => {
 			const elem = e.target;
 			const product = {
 				id: elem.getAttribute("data-id"),
+				name: elem.getAttribute("data-name"),
 				image: elem.getAttribute("data-image"),
 				price: elem.getAttribute("data-price"),
 				quantity: 1,
