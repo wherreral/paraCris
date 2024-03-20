@@ -30,6 +30,12 @@
   row-gap: 0.625rem;
 }
 
+.checkout-page__form-select {
+  height: 40px;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+
 .checkout-page__form-submit {
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -126,4 +132,16 @@
 	font-size: 1.5rem;
 	line-height: 1.3;
   }
+}
+
+/* Parsley styles validation library */
+.parsley-errors-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  color: red;
+}
+
+.parsley-errors-list.filled {
+  border-top: 5px solid red;
 }

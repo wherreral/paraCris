@@ -20,12 +20,6 @@
 	<div id="page">
 		<div class="container">
 			<header id="masthead" class="site-header">
-				<div class="site-branding">
-					<h1 class="site-title">
-						<a href="index.html" rel="home">Moschino</a>
-					</h1>
-					<h2 class="site-description">Minimalist Portfolio HTML Template</h2>
-				</div>
 				<nav id="site-navigation" class="main-navigation">
 					<button class="menu-toggle">Menu</button>
 					<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
@@ -61,19 +55,55 @@
 			<div class="container">
 				<article class="checkout-page__wrapper">
 					<section class="checkout-page__address-info">
-						<form class="checkout-page__address-form" id="checkout-address-form">
-							<h2 class="checkout-page__address-title">Información de Envío</h2>
+						<form class="checkout-page__address-form" id="checkout-address-form" data-parsley-validate="">
+							<div class="parsley-error"></div>
+							<h2 class="checkout-page__address-title">Información de Cliente</h2>
 							<div class="checkout-page__form-group">
-								<label class="checkout-page__form-label">Dirección</label>
-								<input class="checkout-page__form-text" type="text" name="address" placeholder="Dirección" />
+								<label for="name" class="checkout-page__form-label">Nombres</label>
+								<input class="checkout-page__form-text" type="text" id="name" name="name" placeholder="Nombres" required="" />
 							</div>
 							<div class="checkout-page__form-group">
-								<label class="checkout-page__form-label">Ciudad</label>
-								<input class="checkout-page__form-text" type="text" name="city" placeholder="Ciudad" />
+								<label for="lastname" class="checkout-page__form-label">Apellidos</label>
+								<input class="checkout-page__form-text" type="text" id="lastname" name="lastname" placeholder="Apellidos" required="" />
+							</div>
+							<div class="checkout-page__form-group">
+								<label for="email" class="checkout-page__form-label">Correo Electrónico</label>
+								<input class="checkout-page__form-text" type="email" id="email" name="email" placeholder="email@email.com" data-parsley-trigger="change" required="" />
+							</div>
+							<div class="checkout-page__form-group">
+								<label for="phone" class="checkout-page__form-label">Celular</label>
+								<input class="checkout-page__form-text" type="tel" id="phone" name="phone" placeholder="999999999" required="" />
+							</div>
+							<h2 class="checkout-page__address-title">Información de Envío</h2>
+							<div class="checkout-page__form-group">
+								<label for="address" class="checkout-page__form-label">Dirección</label>
+								<input class="checkout-page__form-text" type="text" id="address" name="address" placeholder="Dirección" required="" />
+							</div>
+							<div class="checkout-page__form-group">
+								<label class="checkout-page__form-label" for="comune">Comuna</label>
+								<select class="checkout-page__form-select" id="comune" name="comune" required="">
+									<option value="" selected>Selecciona una comuna</option>
+									<option value="arica">Arica</option>
+									<option value="camarones">Camarones</option>
+									<option value="putre">Putre</option>
+									<option value="iquique">Iquique</option>
+									<option value="colchane">Calchane</option>
+									<option value="pica">Pica</option>
+								</select>
+							</div>
+							<div class="checkout-page__form-group">
+								<label class="checkout-page__form-label" for="region">Región</label>
+								<select class="checkout-page__form-select" id="region" name="region" required="">
+									<option value="" selected>Selecciona una comuna</option>
+									<option value="region-de-arica-y-parinacota">Región de Arica y Parinacota</option>
+									<option value="region-de-tarapaca">Región de Tarapacá</option>
+									<option value="region-de-antofagasta">Región de Antofagasta</option>
+									<option value="region-de-atacama">Región de Atacama</option>
+								</select>
 							</div>
 							<div class="checkout-page__form-group">
 								<label>
-									<input type="radio" id="electronic-payment" name="payment" value="electronic-payment" checked />
+									<input type="radio" id="electronic-payment" name="payment" value="electronic-payment" required="" checked />
 									Transferencia Electrónica
 								</label>
 								<label>
@@ -123,6 +153,7 @@
 	<script src="js/scripts.js"></script>
 	<script src="js/masonry.pkgd.min.js"></script>
 	<script src="js/validate.js"></script>
+	<script src="js/parsley.min.js"></script>
 	<script src="js/shopping-cart.js"></script>
 	<script src="js/checkout-page.js"></script>
 </body>

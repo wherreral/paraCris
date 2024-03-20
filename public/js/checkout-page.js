@@ -95,15 +95,41 @@ function renderSummaryCartItems() {
 	checkoutSummaryOrder.appendChild(renderSummaryCartOrder());
 }
 
+function handleValidateForm() {
+	jQuery(document).ready(function ($) {
+		$("#checkout-address-form").parley().on("form:submit", function () {
+			return false;
+		});
+	})
+}
+
 function handleCheckoutSubmit(event) {
 	event.preventDefault();
+	const shoppingCartItems = getShoppingCartListFromLocalStorage();
+	if (!Boolean(shoppingCartItems.length)) {
+		const message = document.createElement("small");
+		message.classList.add("checkout-page__message", "checkout-page__message-error");
+		message.textContent = "No hay productos para procesar.";
+		checkoutAddressForm.appendChild(message);
+		setTimeout(() => {
+			const message = document.querySelector(".checkout-page__message");
+			if (message) message.remove();
+		}, 4500);
+		return;
+	}
+	handleValidateForm();
 	checkoutPageFormSubmitButton.disabled = true;
 	checkoutPageFormSubmitButton.textContent = "Procesando...";
 
 	const formData = new FormData(event.target);
 	const data = {
+		name: formData.get("name"),
+		lastname: formData.get("lastname"),
+		email: formData.get("email"),
+		phone: formData.get("phone"),
 		address: formData.get("address"),
-		city: formData.get("city"),
+		comune: formData.get("comune"),
+		region: formData.get("region"),
 		payment: formData.get("payment"),
 	};
 
