@@ -30,6 +30,12 @@
   row-gap: 0.625rem;
 }
 
+.checkout-page__form-select {
+  height: 40px;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+
 .checkout-page__form-submit {
   padding: 0.5rem 1rem;
   border-radius: 4px;
