@@ -95,6 +95,14 @@ function renderSummaryCartItems() {
 	checkoutSummaryOrder.appendChild(renderSummaryCartOrder());
 }
 
+function handleValidateForm() {
+	jQuery(document).ready(function ($) {
+		$("#checkout-address-form").parley().on("form:submit", function () {
+			return false;
+		});
+	})
+}
+
 function handleCheckoutSubmit(event) {
 	event.preventDefault();
 	const shoppingCartItems = getShoppingCartListFromLocalStorage();
@@ -109,6 +117,7 @@ function handleCheckoutSubmit(event) {
 		}, 4500);
 		return;
 	}
+	handleValidateForm();
 	checkoutPageFormSubmitButton.disabled = true;
 	checkoutPageFormSubmitButton.textContent = "Procesando...";
 
