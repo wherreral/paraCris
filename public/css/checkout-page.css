@@ -133,3 +133,15 @@
 	line-height: 1.3;
   }
 }
+
+/* Parsley styles validation library */
+.parsley-errors-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  color: red;
+}
+
+.parsley-errors-list.filled {
+  border-top: 5px solid red;
+}
