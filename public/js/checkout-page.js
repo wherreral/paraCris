@@ -97,7 +97,7 @@ function renderSummaryCartItems() {
 
 function handleValidateForm() {
 	jQuery(document).ready(function ($) {
-		$("#checkout-address-form").parley().on("form:submit", function () {
+		$("#checkout-address-form").parsley().on("form:submit", function () {
 			return false;
 		});
 	})
