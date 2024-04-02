@@ -150,7 +150,7 @@
   font-weight: 700;
   text-transform: uppercase;
   font-size: 14px;
-  padding: 10px 0 0 0;
+  padding: 0;
   letter-spacing: 1px;
   line-height: 1.5;
 }
@@ -162,8 +162,8 @@
 
 .shopping-cart__total-badge {
   position: absolute;
-  top: 0;
-  right: -15px;
+  top: -10px;
+  right: -10px;
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 50%;
@@ -174,10 +174,6 @@
 }
 
 @media screen and (min-width: 1024px) {
-  #menu-shopping-cart-button {
-    padding: 0;
-  }
-
   .shopping-cart__total-badge {
     top: -10px;
   }
