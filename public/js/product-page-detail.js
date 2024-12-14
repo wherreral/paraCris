@@ -84,7 +84,9 @@ function createRelatedProductsCart(products) {
 		button.classList.add("related-products-swipper__add-to-cart");
 		button.type = "button";
 		button.textContent = "Agregar al Carro";
-		button.addEventListener("click", (event) => handleAddToCart(event, products[idx]));
+		button.addEventListener("click", (event) => {
+			handleAddToCart(event, products[idx])
+		});
 
 		card.appendChild(image);
 		card.appendChild(title);
