@@ -98,11 +98,12 @@
             </li>
           </ul>
         </nav>
+        <!-- #Menu Actions -->
         <div class="menu__actions">
           <div class="search__wrapper">
             <dialog class="search__dialog" id="search-dialog">
               <header class="search__dialog--header">
-                <form class="search__dialog--form">
+                <form id="search-form" class="search__dialog--form">
                   <section class="search__dialog--form__control">
                     <label
                       for="search-input"
@@ -119,12 +120,13 @@
                     />
                   </section>
                 </form>
+                <button id="search-close" class="search-close" type="reset">
+                  &times;
+                </button>
               </header>
-              <div id="search-results" class="search__dialog--results"></div>
-              <!-- <footer class="search__dialog--footer">
-                <div></div>
-                <button id="cancel" type="reset">Cerrar</button>
-              </footer> -->
+              <div class="search__dialog--wrapper">
+                <div id="search-results" class="search__dialog--results"></div>
+              </div>
             </dialog>
             <menu>
               <button
@@ -144,6 +146,7 @@
             <span>🛒</span>
           </button>
         </div>
+        <!-- #End Menu Actions -->
         <div class="menu__hamburger">&#9776;</div>
       </div>
     </header>

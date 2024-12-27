@@ -15,7 +15,9 @@
 <link rel='stylesheet' href='/css/shopping-cart.css' />
 <link rel='stylesheet' href='/css/product-detail-page.css' />
 <link rel='stylesheet' href='/css/menu-bar.css' />
+<link rel="stylesheet" href="/css/search-bar.css" />
 <script src="/js/menu-bar.js" defer></script>
+<script src="/js/search-bar.js" defer></script>
 </head>
 <body class="single single-product woocommerce woocommerce-page">
 <header class="menu__header">
@@ -31,9 +33,55 @@
 				<li class="menu__list-item"><a class="menu__link" href="/checkout">Checkout</a></li>
 			</ul>
 		</nav>
-		<button type="button" class="menu__cart-button" id="menu-shopping-cart-button">
-			<span>🛒</span>
-		</button>
+        <!-- #Menu Actions -->
+        <div class="menu__actions">
+          <div class="search__wrapper">
+            <dialog class="search__dialog" id="search-dialog">
+              <header class="search__dialog--header">
+                <form id="search-form" class="search__dialog--form">
+                  <section class="search__dialog--form__control">
+                    <label
+                      for="search-input"
+                      class="search__dialog--form__label"
+                      >Busca por el nombre del comic</label
+                    >
+                    <input
+                      type="search"
+                      name="search-input"
+                      class="search__dialog--form__input"
+                      id="search-input"
+                      placeholder="Watchmen deluxe"
+                      autocomplete="off"
+                    />
+                  </section>
+                </form>
+                <button id="search-close" class="search-close" type="reset">
+                  &times;
+                </button>
+              </header>
+              <div class="search__dialog--wrapper">
+                <div id="search-results" class="search__dialog--results"></div>
+              </div>
+            </dialog>
+            <menu>
+              <button
+                type="button"
+                class="menu__cart-button"
+                id="search-button"
+              >
+                <span>🔍</span>
+              </button>
+            </menu>
+          </div>
+          <button
+            type="button"
+            class="menu__cart-button"
+            id="menu-shopping-cart-button"
+          >
+            <span>🛒</span>
+          </button>
+        </div>
+        <!-- #End Menu Actions -->
 		<div class="menu__hamburger">&#9776;</div>
 	</div>
 </header>

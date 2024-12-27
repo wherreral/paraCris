@@ -1,150 +1,336 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>🛒 Checkout Page</title>
+    <link
+      rel="stylesheet"
+      href="css/woocommerce-layout.css"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="css/woocommerce-smallscreen.css"
+      type="text/css"
+      media="only screen and (max-width: 768px)"
+    />
+    <link
+      rel="stylesheet"
+      href="css/woocommerce.css"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="css/font-awesome.min.css"
+      type="text/css"
+      media="all"
+    />
+    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="css/easy-responsive-shortcodes.css"
+      type="text/css"
+      media="all"
+    />
+    <link rel="stylesheet" href="/css/menu-bar.css" />
+    <link rel="stylesheet" href="/css/shopping-cart.css" />
+    <link rel="stylesheet" href="/css/checkout-page.css" />
+    <link rel="stylesheet" href="/css/search-bar.css" />
+    <script src="/js/menu-bar.js" defer></script>
+    <script src="/js/search-bar.js" defer></script>
+  </head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>🛒 Checkout Page</title>
-	<link rel="stylesheet" href="css/woocommerce-layout.css" type="text/css" media="all" />
-	<link rel="stylesheet" href="css/woocommerce-smallscreen.css" type="text/css" media="only screen and (max-width: 768px)" />
-	<link rel="stylesheet" href="css/woocommerce.css" type="text/css" media="all" />
-	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all" />
-	<link rel="stylesheet" href="style.css" type="text/css" media="all" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700" type="text/css" media="all" />
-	<link rel="stylesheet" href="css/easy-responsive-shortcodes.css" type="text/css" media="all" />
-	<link rel='stylesheet' href='/css/menu-bar.css' />
-	<link rel="stylesheet" href="/css/shopping-cart.css" />
-	<link rel="stylesheet" href="/css/checkout-page.css" />
-	<script src="/js/menu-bar.js" defer></script>
-</head>
-
-<body class="home page page-template page-template-template-portfolio page-template-template-portfolio-php">
-	<header class="menu__header">
-		<div class="menu__container">
-			<div class="menu__logo">Logo</div>
-			<nav class="menu__nav">
-				<ul class="menu__list">
-					<li class="menu__list-item"><a class="menu__link" href="/">Inicio</a></li>
-					<li class="menu__list-item"><a class="menu__link" href="about.html">Nosotros</a></li>
-					<li class="menu__list-item"><a class="menu__link" href="shop.html">Tienda</a></li>
-					<li class="menu__list-item"><a class="menu__link" href="blog.html">Blog</a></li>
-					<li class="menu__list-item"><a class="menu__link" href="contact.html">Contacto</a></li>
-					<li class="menu__list-item"><a class="menu__link" href="/checkout">Checkout</a></li>
-				</ul>
-			</nav>
-			<button type="button" class="menu__cart-button" id="menu-shopping-cart-button">
-				<span>🛒</span>
-			</button>
-			<div class="menu__hamburger">&#9776;</div>
-		</div>
-	</header>
-	<div id="page">
-		<div class="container">
-			<!-- #masthead -->
-			<div class="container">
-				<article class="checkout-page__wrapper">
-					<section class="checkout-page__address-info">
-						<form class="checkout-page__address-form" id="checkout-address-form" data-parsley-validate="">
-							<div class="parsley-error"></div>
-							<h2 class="checkout-page__address-title">Información de Cliente</h2>
-							<div class="checkout-page__form-group">
-								<label for="name" class="checkout-page__form-label">Nombres</label>
-								<input class="checkout-page__form-text" type="text" id="name" name="name" placeholder="Nombres" required="" />
-							</div>
-							<div class="checkout-page__form-group">
-								<label for="lastname" class="checkout-page__form-label">Apellidos</label>
-								<input class="checkout-page__form-text" type="text" id="lastname" name="lastname" placeholder="Apellidos" required="" />
-							</div>
-							<div class="checkout-page__form-group">
-								<label for="email" class="checkout-page__form-label">Correo Electrónico</label>
-								<input class="checkout-page__form-text" type="email" id="email" name="email" placeholder="email@email.com" data-parsley-trigger="change" required="" />
-							</div>
-							<div class="checkout-page__form-group">
-								<label for="phone" class="checkout-page__form-label">Celular</label>
-								<input class="checkout-page__form-text" type="tel" id="phone" name="phone" placeholder="999999999" required="" />
-							</div>
-							<h2 class="checkout-page__address-title">Información de Envío</h2>
-							<div class="checkout-page__form-group">
-								<label for="address" class="checkout-page__form-label">Dirección</label>
-								<input class="checkout-page__form-text" type="text" id="address" name="address" placeholder="Dirección" required="" />
-							</div>
-							<div class="checkout-page__form-group">
-								<label class="checkout-page__form-label" for="comune">Comuna</label>
-								<select class="checkout-page__form-select" id="comune" name="comune" required="">
-									<option value="" selected>Selecciona una comuna</option>
-									<option value="arica">Arica</option>
-									<option value="camarones">Camarones</option>
-									<option value="putre">Putre</option>
-									<option value="iquique">Iquique</option>
-									<option value="colchane">Calchane</option>
-									<option value="pica">Pica</option>
-								</select>
-							</div>
-							<div class="checkout-page__form-group">
-								<label class="checkout-page__form-label" for="region">Región</label>
-								<select class="checkout-page__form-select" id="region" name="region" required="">
-									<option value="" selected>Selecciona una comuna</option>
-									<option value="region-de-arica-y-parinacota">Región de Arica y Parinacota</option>
-									<option value="region-de-tarapaca">Región de Tarapacá</option>
-									<option value="region-de-antofagasta">Región de Antofagasta</option>
-									<option value="region-de-atacama">Región de Atacama</option>
-								</select>
-							</div>
-							<div class="checkout-page__form-group">
-								<label>
-									<input type="radio" id="electronic-payment" name="payment" value="electronic-payment" required="" checked />
-									Transferencia Electrónica
-								</label>
-								<label>
-									<input type="radio" id="link-payment" name="payment" value="link-payment" />
-									Link de Pago
-								</label>
-							</div>
-							<button class="checkout-page__form-submit" type="submit">Confirmar</button>
-						</form>
-					</section>
-					<section class="checkout-page__summary">
-						<div class="checkout-page__summary-items" id="checkout-summary-order">
-							<h2 class="checkout-page__summary-title">Resumen de Compra</h2>
-						</div>
-					</section>
-				</article>
-			</div>
-			<!-- #content -->
-			<div id="shopping-cart-overlay" class="shopping-cart__overlay">
-				<div id="shopping-cart-sidebar" class="shopping-cart__sidebar">
-					<header class="shopping-cart__header">
-						<h4 id="shopping-cart-total" class="shopping-cart__title"></h4>
-						<button type="button" class="shopping-cart__close-btn">&times;</button>
-					</header>
-					<div class="shopping-cart__container">
-						<article class="shopping-cart__content"></article>
-					</div>
-					<footer class="shopping-cart__footer">
-					</footer>
-				</div>
-			</div>
-		</div>
-		<!-- .container -->
-		<footer id="colophon" class="site-footer">
-			<div class="container">
-				<div class="site-info">
-					<h1>Moschino</h1>
-					<a target="blank" href="https://www.wowthemes.net/">&copy; Moschino - Free HTML Template by WowThemes.net</a>
-				</div>
-			</div>
-		</footer>
-		<a href="#top" class="smoothup" title="Back to top"><span class="genericon genericon-collapse"></span></a>
-	</div>
-	<!-- #page -->
-	<script src="js/jquery.js"></script>
-	<script src="js/plugins.js"></script>
-	<script src="js/scripts.js"></script>
-	<script src="js/masonry.pkgd.min.js"></script>
-	<script src="js/validate.js"></script>
-	<script src="js/parsley.min.js"></script>
-	<script src="js/shopping-cart.js"></script>
-	<script src="js/checkout-page.js"></script>
-</body>
-
+  <body
+    class="home page page-template page-template-template-portfolio page-template-template-portfolio-php"
+  >
+    <header class="menu__header">
+      <div class="menu__container">
+        <div class="menu__logo">Logo</div>
+        <nav class="menu__nav">
+          <ul class="menu__list">
+            <li class="menu__list-item">
+              <a class="menu__link" href="/">Inicio</a>
+            </li>
+            <li class="menu__list-item">
+              <a class="menu__link" href="about.html">Nosotros</a>
+            </li>
+            <li class="menu__list-item">
+              <a class="menu__link" href="shop.html">Tienda</a>
+            </li>
+            <li class="menu__list-item">
+              <a class="menu__link" href="blog.html">Blog</a>
+            </li>
+            <li class="menu__list-item">
+              <a class="menu__link" href="contact.html">Contacto</a>
+            </li>
+            <li class="menu__list-item">
+              <a class="menu__link" href="/checkout">Checkout</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- #Menu Actions -->
+        <div class="menu__actions">
+          <div class="search__wrapper">
+            <dialog class="search__dialog" id="search-dialog">
+              <header class="search__dialog--header">
+                <form id="search-form" class="search__dialog--form">
+                  <section class="search__dialog--form__control">
+                    <label
+                      for="search-input"
+                      class="search__dialog--form__label"
+                      >Busca por el nombre del comic</label
+                    >
+                    <input
+                      type="search"
+                      name="search-input"
+                      class="search__dialog--form__input"
+                      id="search-input"
+                      placeholder="Watchmen deluxe"
+                      autocomplete="off"
+                    />
+                  </section>
+                </form>
+                <button id="search-close" class="search-close" type="reset">
+                  &times;
+                </button>
+              </header>
+              <div class="search__dialog--wrapper">
+                <div id="search-results" class="search__dialog--results"></div>
+              </div>
+            </dialog>
+            <menu>
+              <button
+                type="button"
+                class="menu__cart-button"
+                id="search-button"
+              >
+                <span>🔍</span>
+              </button>
+            </menu>
+          </div>
+          <button
+            type="button"
+            class="menu__cart-button"
+            id="menu-shopping-cart-button"
+          >
+            <span>🛒</span>
+          </button>
+        </div>
+        <!-- #End Menu Actions -->
+        <div class="menu__hamburger">&#9776;</div>
+      </div>
+    </header>
+    <div id="page">
+      <div class="container">
+        <!-- #masthead -->
+        <div class="container">
+          <article class="checkout-page__wrapper">
+            <section class="checkout-page__address-info">
+              <form
+                class="checkout-page__address-form"
+                id="checkout-address-form"
+                data-parsley-validate=""
+              >
+                <div class="parsley-error"></div>
+                <h2 class="checkout-page__address-title">
+                  Información de Cliente
+                </h2>
+                <div class="checkout-page__form-group">
+                  <label for="name" class="checkout-page__form-label"
+                    >Nombres</label
+                  >
+                  <input
+                    class="checkout-page__form-text"
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Nombres"
+                    required=""
+                  />
+                </div>
+                <div class="checkout-page__form-group">
+                  <label for="lastname" class="checkout-page__form-label"
+                    >Apellidos</label
+                  >
+                  <input
+                    class="checkout-page__form-text"
+                    type="text"
+                    id="lastname"
+                    name="lastname"
+                    placeholder="Apellidos"
+                    required=""
+                  />
+                </div>
+                <div class="checkout-page__form-group">
+                  <label for="email" class="checkout-page__form-label"
+                    >Correo Electrónico</label
+                  >
+                  <input
+                    class="checkout-page__form-text"
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="email@email.com"
+                    data-parsley-trigger="change"
+                    required=""
+                  />
+                </div>
+                <div class="checkout-page__form-group">
+                  <label for="phone" class="checkout-page__form-label"
+                    >Celular</label
+                  >
+                  <input
+                    class="checkout-page__form-text"
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="999999999"
+                    required=""
+                  />
+                </div>
+                <h2 class="checkout-page__address-title">
+                  Información de Envío
+                </h2>
+                <div class="checkout-page__form-group">
+                  <label for="address" class="checkout-page__form-label"
+                    >Dirección</label
+                  >
+                  <input
+                    class="checkout-page__form-text"
+                    type="text"
+                    id="address"
+                    name="address"
+                    placeholder="Dirección"
+                    required=""
+                  />
+                </div>
+                <div class="checkout-page__form-group">
+                  <label class="checkout-page__form-label" for="comune"
+                    >Comuna</label
+                  >
+                  <select
+                    class="checkout-page__form-select"
+                    id="comune"
+                    name="comune"
+                    required=""
+                  >
+                    <option value="" selected>Selecciona una comuna</option>
+                    <option value="arica">Arica</option>
+                    <option value="camarones">Camarones</option>
+                    <option value="putre">Putre</option>
+                    <option value="iquique">Iquique</option>
+                    <option value="colchane">Calchane</option>
+                    <option value="pica">Pica</option>
+                  </select>
+                </div>
+                <div class="checkout-page__form-group">
+                  <label class="checkout-page__form-label" for="region"
+                    >Región</label
+                  >
+                  <select
+                    class="checkout-page__form-select"
+                    id="region"
+                    name="region"
+                    required=""
+                  >
+                    <option value="" selected>Selecciona una comuna</option>
+                    <option value="region-de-arica-y-parinacota">
+                      Región de Arica y Parinacota
+                    </option>
+                    <option value="region-de-tarapaca">
+                      Región de Tarapacá
+                    </option>
+                    <option value="region-de-antofagasta">
+                      Región de Antofagasta
+                    </option>
+                    <option value="region-de-atacama">Región de Atacama</option>
+                  </select>
+                </div>
+                <div class="checkout-page__form-group">
+                  <label>
+                    <input
+                      type="radio"
+                      id="electronic-payment"
+                      name="payment"
+                      value="electronic-payment"
+                      required=""
+                      checked
+                    />
+                    Transferencia Electrónica
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      id="link-payment"
+                      name="payment"
+                      value="link-payment"
+                    />
+                    Link de Pago
+                  </label>
+                </div>
+                <button class="checkout-page__form-submit" type="submit">
+                  Confirmar
+                </button>
+              </form>
+            </section>
+            <section class="checkout-page__summary">
+              <div
+                class="checkout-page__summary-items"
+                id="checkout-summary-order"
+              >
+                <h2 class="checkout-page__summary-title">Resumen de Compra</h2>
+              </div>
+            </section>
+          </article>
+        </div>
+        <!-- #content -->
+        <div id="shopping-cart-overlay" class="shopping-cart__overlay">
+          <div id="shopping-cart-sidebar" class="shopping-cart__sidebar">
+            <header class="shopping-cart__header">
+              <h4 id="shopping-cart-total" class="shopping-cart__title"></h4>
+              <button type="button" class="shopping-cart__close-btn">
+                &times;
+              </button>
+            </header>
+            <div class="shopping-cart__container">
+              <article class="shopping-cart__content"></article>
+            </div>
+            <footer class="shopping-cart__footer"></footer>
+          </div>
+        </div>
+      </div>
+      <!-- .container -->
+      <footer id="colophon" class="site-footer">
+        <div class="container">
+          <div class="site-info">
+            <h1>Moschino</h1>
+            <a target="blank" href="https://www.wowthemes.net/"
+              >&copy; Moschino - Free HTML Template by WowThemes.net</a
+            >
+          </div>
+        </div>
+      </footer>
+      <a href="#top" class="smoothup" title="Back to top"
+        ><span class="genericon genericon-collapse"></span
+      ></a>
+    </div>
+    <!-- #page -->
+    <script src="js/jquery.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/validate.js"></script>
+    <script src="js/parsley.min.js"></script>
+    <script src="js/shopping-cart.js"></script>
+    <script src="js/checkout-page.js"></script>
+  </body>
 </html>
